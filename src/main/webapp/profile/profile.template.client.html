@@ -1,0 +1,49 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+	rel="stylesheet" />
+<link href="profile.style.client.css" rel="stylesheet" />
+</head>
+<div class="container">
+<h1 class="col-sm-12">Profile </h1>
+<div class="form-group row">
+	<label for="usernameFld" class="col-sm-2 col-form-label">
+		Username </label> <input id="usernameFld"
+		class="wbdv-field wbdv-username col-sm-10 " placeholder="Alice" />
+</div>
+<div class="form-group row">
+	<label for="phoneFld" class="col-sm-2 col-form-label"> Phone </label> <input
+		id="phoneFld" class="wbdv-field wbdv-phone col-sm-10 " placeholder="(555)123-4567"/>
+</div>
+<div class="form-group row">
+	<label for="emailFld" class="col-sm-2 col-form-label"> Email </label> <input
+		id="emailFld" class="wbdv-field wbdv-email col-sm-10 " placeholder="alice@gmail.com"/>
+</div>
+<div class="form-group row">
+	<label for="dobFld" class="col-sm-2 col-form-label"> Date of
+		Birth </label> <input type="date" id="dobFld" class="wbdv-field wbdv-dob col-sm-10 " />
+</div>
+<div class="form-group row">
+	<label for="roleFld" class="col-sm-2 col-form-label"> Role</label> 
+	<select class="col-sm-10">
+		<option value="Faculty">Faculty</option>
+		<option value="Student">Student</option>
+		<option value="Admin">Admin</option>
+	</select>
+</div>
+
+<div class="form-group row">
+<label for="updateBtn" class="col-sm-2 col-form-label"> </label> 
+<button id="updateBtn" class="col-sm-10 wbdv-button wbdv-update btn btn-success
+">Update</button>
+</div>
+<div class="form-group row">
+<label for="logoutBtn" class="col-sm-2 col-form-label"></label> 
+<button id="logoutBtn" class="col-sm-10 wbdv-button wbdv-logout btn btn-danger">Logout</button>
+</div>
+<div class="alertFld wbdv-message"></div>
+</div>
+</html>
