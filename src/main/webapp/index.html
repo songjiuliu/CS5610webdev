@@ -1,33 +1,32 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Home Page</title>
+<title>Course Manager</title>
 <link
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
 	rel="stylesheet" />
 <link href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
 	rel="stylesheet">
-<link 	href="index.style.client.css"
-			rel="stylesheet"/>
+<link href="index.style.client.css" rel="stylesheet" />
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script
+	src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
+
 </head>
 <body>
 	<nav class="navbar navbar-expand-lg navbar-light bg-light">
-		<a class="navbar-brand" href="#">Home Page</a>
+		<a class="navbar-brand" href="#">Home</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse"
-			data-target="#navbarNav" aria-controls="navbarNav"
-			aria-expanded="false" aria-label="Toggle navigation">
+			data-target="#navbarNavDropdown">
 			<span class="navbar-toggler-icon"></span>
 		</button>
-		<div class="collapse navbar-collapse" id="navbarNav">
-			<ul class="navbar-nav">
-				<li class="nav-item active"><a class="nav-link" href="#">Home
-						<span class="sr-only">(current)</span>
-				</a></li>
-				<li class="nav-item"><a class="nav-link" href="#">Login</a></li>
-				<li class="nav-item"><a class="nav-link" href="#">Register</a>
-				</li>
-				<li class="nav-item"><a class="nav-link" href="#">Profile</a></li>
-			</ul>
+		<div class="collapse navbar-collapse" id="navbarNavDropdown">
+				<ul class="navbar-nav">
+					<li class="nav-item"><a class="nav-link" href="/index.html">Home</a></li>
+					<li class="nav-item"><a class="nav-link" href="/login/login.template.client.html">Login</a></li>
+					<li class="nav-item"><a class="nav-link" href="/register/register.template.client.html">Register</a></li>
+					<li class="nav-item"><a class="nav-link" href="/profile/profile.template.client.html">Profile</a></li>
+				</ul>
 		</div>
 	</nav>
 
