@@ -4,8 +4,10 @@ let createuser = $("#createuser"); // put $ remember jquery object
 let deleteuser = $(".wbdv-remove");
 let edituser = $(".wbdv-edit");
 let updateuser = $(".wbdv-update");
-let users = [];
+let searchuser = $(".wbdv-search")
 
+let users = [];
+let searchusers=[];
 var userService = new AdminUserServiceClient();
 let rowTemplate = jQuery('.wbdv-template');
 
@@ -17,7 +19,40 @@ let passwordfld = jQuery('#passwordFld');
 let usernamefld = jQuery('#usernameFld');
 let rolefld = jQuery('#roleFld');
 
+function searchUser(){
 
+    const username = usernamefld.val()
+    console.log(username)
+    usernamefld.val("")
+    const firstname = firstnamefld.val()
+    firstnamefld.val("")
+    const lastname = lastnamefld.val()
+    lastnamefld.val("")
+    const role = rolefld.val()
+
+    let result=[]
+    for (var u in users){
+    	if ((username==""||users[u].username==username)&&(firstname==""||users[u].firstname==firstname)&&(lastname==""||users[u].lastname==lastname)&&(users[u].role==role))
+    			{
+    		result.push(users[u])
+    			}
+    }
+	tbody.empty()
+	for(var u in result){
+		const user = result[u]
+		console.log(user)
+		const rowClone =rowTemplate.clone()
+		rowClone.removeClass('wbdv-hidden')
+		rowClone.find('.wbdv-username').html(user.username)
+		rowClone.find('.wbdv-first-name').html(user.firstname)
+		rowClone.find('.wbdv-last-name').html(user.lastname)
+		rowClone.find(".wbdv-role").html(user.role)
+		rowClone.find(".wbdv-id").html(user._id)
+		console.log(rowClone)
+		tbody.append(rowClone)
+	}
+
+}
 
 function deleteUser (event){
 
@@ -25,7 +60,6 @@ function deleteUser (event){
 	td = currenttarget.parent().parent().parent().parent()
 	
 	userId=td.find('.wbdv-id').html()
-	//console.log(userId)
 	userService.deleteUser(userId)
             .then(response => {
 
@@ -41,7 +75,6 @@ function editUser (event){
 	currenttarget=$(event.currentTarget)
 	td = currenttarget.parent().parent().parent().parent()
 	userId=td.find('.wbdv-id').html()
-	
 	console.log(userId)
 	userService.findUserById(userId)
         .then(user => {
@@ -83,14 +116,17 @@ const updateUser = () => {
     }
 updateuser = $(".wbdv-update");
 updateuser.click(updateUser)
+searchuser = $(".wbdv-search");
+searchuser.click(searchUser)
+
 const renderUsers = () =>{
 	tbody.empty()
+	console.log(users)
 
 	for(var u in users){
 		const user = users[u]
 		console.log(user)
 		const rowClone =rowTemplate.clone()
-		//console.log(rowClone)
 		rowClone.removeClass('wbdv-hidden')
 		rowClone.find('.wbdv-username').html(users[u].username)
 		rowClone.find('.wbdv-first-name').html(users[u].firstname)
@@ -101,7 +137,6 @@ const renderUsers = () =>{
 		tbody.append(rowClone)
 	}
 	deleteuser = $(".wbdv-remove");
-	//console.log(deleteuser)
 	deleteuser.click(deleteUser)
 	edituser = $(".wbdv-edit");
 	edituser.click(editUser)
@@ -117,7 +152,6 @@ deleteuser.click(deleteUser)
 createuser = $("#createuser");
 
 function createUser(){
-
 	let temptbody = jQuery('tbody');
 	const username = usernamefld.val()
     usernamefld.val("")
@@ -128,7 +162,6 @@ function createUser(){
     const role = rolefld.val()
     const password = passwordfld.val()
     passwordfld.val("")
-
 	const rowTemplate = jQuery('.wbdv-hidden')
     var user = {
             username: username,
